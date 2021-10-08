@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <title>{{config('app.name', 'LSAPP')}}</title>
+
+        {{-- <script>
+            var CKEDITOR_BASEPATH = window.location.origin + '/ckeditor/ckeditor';
+        </script> --}}
+    </head>
+    <body>
+        @include('inc.navbar')
+        <div class="container">
+            @include('inc.messages')
+            @yield('content')            
+        </div>
+
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace('article-ckeditor');
+        </script>
+    </body>
+</html>
+
+<!-- ------------------------- -->
+
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example" style="margin-bottom: 25px;">
+    <div class="container">
+      <a class="navbar-brand" style="font-size: 23px !important;" href="/">{{config('app.name', 'LSAPP')}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item" style="font-size: 18px !important;">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item" style="font-size: 18px !important;">
+            <a class="nav-link" aria-current="page" href="/about">About</a>
+          </li>
+          <li class="nav-item" style="font-size: 18px !important;">
+            <a class="nav-link" aria-current="page" href="/services">Services</a>
+          </li>
+          <li class="nav-item" style="font-size: 18px !important;">
+            <a class="nav-link" aria-current="page" href="/posts">Blog</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          {{-- style="nav-right: 0px" --}}
+          <li class="nav-item" style="font-size: 18px !important;">
+            <a class="nav-link" aria-current="page" href="/posts/create">Create Post</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
